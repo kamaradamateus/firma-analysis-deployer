@@ -1,5 +1,4 @@
-# Use a light Alpine Linux image with OpenJDK
-FROM openjdk:11-alpine
+FROM adoptopenjdk/openjdk11:latest
 
 # Set the working directory
 WORKDIR /app
