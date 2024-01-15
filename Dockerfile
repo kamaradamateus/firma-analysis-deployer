@@ -4,7 +4,9 @@ FROM adoptopenjdk/openjdk11:latest
 WORKDIR /app
 
 # Install curl
-RUN apk --no-cache add curl
+RUN apt-get update && \
+    apt-get install -y curl && \
+    rm -rf /var/lib/apt/lists/*
 
 # Download the latest release JAR from Clojars
 ARG CLOJARS_GROUP=org/clojars/mtsbarbosa
