@@ -16,10 +16,8 @@ ARG CLOJARS_VERSION=0.0.10
 RUN curl -o app.jar \
     "https://repo.clojars.org/${CLOJARS_GROUP}/${CLOJARS_ARTIFACT}/${CLOJARS_VERSION}/${CLOJARS_ARTIFACT}-${CLOJARS_VERSION}.jar"
 
-ENV LEIN_PROFILE prod
-
 # Expose the port that your application will run on
 EXPOSE 8080
 
 # Command to run the application
-CMD ["sh", "-c", "java -jar app.jar with-profile +$LEIN_PROFILE"]
+CMD ["sh", "-c", "java -Dconfig.edn=resources/prod-config.edn -jar app.jar"]
