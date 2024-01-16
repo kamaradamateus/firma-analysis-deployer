@@ -20,4 +20,4 @@ RUN curl -o app.jar \
 EXPOSE 8080
 
 # Command to run the application
-CMD ["sh", "-c", "java -Dconfig.edn=prod-config.edn -jar app.jar"]
+CMD ["sh", "-c", "java -Dresrouce.config.edn=prod-config.edn -jar app.jar"]
