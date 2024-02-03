@@ -11,7 +11,7 @@ RUN apt-get update && \
 # Download the latest release JAR from Clojars
 ARG CLOJARS_GROUP=org/clojars/mtsbarbosa
 ARG CLOJARS_ARTIFACT=firma-analysis
-ARG CLOJARS_VERSION=0.0.12
+ARG CLOJARS_VERSION=0.0.13
 
 RUN curl -o app.jar \
     "https://repo.clojars.org/${CLOJARS_GROUP}/${CLOJARS_ARTIFACT}/${CLOJARS_VERSION}/${CLOJARS_ARTIFACT}-${CLOJARS_VERSION}.jar"
@@ -20,4 +20,4 @@ RUN curl -o app.jar \
 EXPOSE 8080
 
 # Command to run the application
-CMD ["sh", "-c", "java -Dresrouce.config.edn=prod-config.edn -jar app.jar"]
+CMD ["sh", "-c", "java -Dresource.config.edn=prod-config.edn -jar app.jar"]
